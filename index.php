@@ -30,12 +30,19 @@
 
 	// load up config file	 
 	require_once("resources/config.php");
-	require_once(TEMPLATES_PATH . "/header.php");
 	require_once(TEMPLATES_PATH . "/functions.php");
 	
 	
 	$dir = $config['path'];
 	
+	if(isset($_GET['i'])){
+		$i = stripslashes($_GET['i']);
+		if(inGoodPlace($i,$config['path'])){
+			return output($i);
+		}else{
+			$err = "Wrong image path";
+		}
+	}
 	
 	if(isset($_GET['f'])){
 		$d = stripslashes($_GET['f']);
@@ -46,10 +53,14 @@
 		}
 	}
 	
+	
+	require_once(TEMPLATES_PATH . "/header.php");
+	
 ?>	
 <body>
 <div id="container">  
-	<?php if(isset($err)){
+	<?php 
+	if(isset($err)){
 		echo "<div id='err'>$err</div>";
 	}
 	?>

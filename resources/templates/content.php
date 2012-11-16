@@ -28,10 +28,15 @@
  * @link      http://github.com/thibaud-rohmer/PhotoLight
  */
 
+if($dir == $config['path']){
+	echo "<div class='content_title'>Home</div>";
+}else{
+	echo "<div class='content_title'>".nice($dir)."</div>";	
+}
 $files = list_files($dir);
 
 foreach ($files as $f){
-	echo "<div class='thumb'><a href=\"$f\"><img src=\"$f\"></a></div>";
+	echo "<div class='thumb'><a href=\"?i=$f\"><img src=\"?i=$f\"></a></div>";
 }
 
 ?>
