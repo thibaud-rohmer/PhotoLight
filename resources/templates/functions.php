@@ -155,4 +155,38 @@ function output($i){
 
 	readfile($i);
 }
+
+/**
+ * Absolute path comes in, relative path goes out !
+ *
+ * @param string $file 
+ * @param string $dir Directory from where the relative path will be (if NULL : photos_dir)
+ * @return void
+ * @author Thibaud Rohmer
+ */
+function a2r($file,$dir){
+	
+	$rf	=	realpath($file);
+	$rd =	realpath($dir);
+	
+	if($rf==$rd) return "";
+
+	if( substr($rf,0,strlen($rd)) != $rd ){
+		throw new Exception("This file is not inside the photos folder !<br/>");
+	}
+
+	return ( substr($rf,strlen($rd) + 1 ) );
+}
+
+/**
+ * Relative path comes in, absolute path goes out !
+ *
+ * @param string $file 
+ * @param string $dir 
+ * @return void
+ * @author Thibaud Rohmer
+ */
+function r2a($file,$dir){
+	return $dir."/".$file;
+}
 ?>

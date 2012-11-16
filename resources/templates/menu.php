@@ -43,7 +43,8 @@ echo "<div class='menu_title'>Main</div>";
 echo "<div class='menu_item'><a href='.'>Home</a></div>";
 
 $menu_items = list_dirs($config["path"]);
-foreach ($menu_items as $item){
+foreach ($menu_items as $it){
+	$item = a2r($it,$config['path']);
 	$urlitem = $item;
 	echo "<div class='menu_item'><a href=\"?f=$urlitem\">".nice($item)."</a></div>";
 }	

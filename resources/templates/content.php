@@ -35,7 +35,8 @@ if($dir == $config['path']){
 }
 $files = list_files($dir);
 
-foreach ($files as $f){
+foreach ($files as $file){
+	$f = a2r($file,$config['path']);
 	echo "<div class='thumb'><a href=\"?i=$f\"><img src=\"?i=$f\"></a></div>";
 }
 

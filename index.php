@@ -36,7 +36,7 @@
 	$dir = $config['path'];
 	
 	if(isset($_GET['i'])){
-		$i = stripslashes($_GET['i']);
+		$i = r2a(stripslashes($_GET['i']),$config['path']);
 		if(inGoodPlace($i,$config['path'])){
 			return output($i);
 		}else{
@@ -45,7 +45,7 @@
 	}
 	
 	if(isset($_GET['f'])){
-		$d = stripslashes($_GET['f']);
+		$d = r2a(stripslashes($_GET['f']),$config['path']);
 		if(inGoodPlace($d,$config['path'])){
 			$dir = $d;
 		}else{
