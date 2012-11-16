@@ -34,23 +34,30 @@
 	require_once(TEMPLATES_PATH . "/functions.php");
 	
 	
+	$dir = $config['path'];
+	
+	
 	if(isset($_GET['f'])){
-		$dir = stripslashes($_GET['f']);
-	}else{
-		$dir = $config['path'];
+		$d = stripslashes($_GET['f']);
+		if(inGoodPlace($d,$config['path'])){
+			$dir = $d;
+		}else{
+			$err = "Wrong path.";
+		}
 	}
 	
 ?>	
 <body>
 <div id="container">  
+	<?php if(isset($err)){
+		echo "<div id='err'>$err</div>";
+	}
+	?>
 	<div id="content">	
 		<?php	require_once(TEMPLATES_PATH . "/content.php");  ?>
 	</div>	
 	<div id="menu">
 		<?php  require_once(TEMPLATES_PATH . "/menu.php"); ?>	
-	</div>
-	<div id="panel">
-		<?php require_once(TEMPLATES_PATH . "/panel.php");  ?>
 	</div>
 </div>	
 <?php  

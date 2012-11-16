@@ -125,4 +125,18 @@ function nice($t){
 		return $t;
 	}
 }
+
+function inGoodPlace($f,$path){
+
+	$rf =	realpath($f);
+	$rd =	realpath($path);
+	
+	if($rf == $rd) return true;
+
+	if( substr($rf,0,strlen($rd)) == $rd ){
+		return true;
+	}
+	return false;
+
+}
 ?>

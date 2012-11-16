@@ -34,10 +34,10 @@
 }
 
 body{
-	position:	relative;
-	background:	#111;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 12px;
+	position:		relative;
+	background:		#111;
+	font-family: 	'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 		12px;
 }
 
 #container{
@@ -46,6 +46,15 @@ body{
 	bottom:		0;
 	left:		0;
 	right:		0;
+}
+
+#err{
+	margin: 	auto;
+	width:  	200px;
+	padding:	5px;
+	text-align: center;
+	background:	red;
+	color:		white;
 }
 
 #menu{
@@ -59,14 +68,14 @@ body{
 }
 
 .menu_title{
-	margin:		0;
-	padding:	2px;
-	border:		1px solid black;
-	background:	#444;
-	color:		white;
+	margin:			0;
+	padding:		2px;
+	border:			1px solid black;
+	background:		#444;
+	color:			white;
 	text-transform:	uppercase;
-	font-size: 11px;
-	font-weight: bold;
+	font-size: 		11px;
+	font-weight: 	bold;
 }
 
 .menu_item a, 

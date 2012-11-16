@@ -32,7 +32,7 @@
 	Configuration array
 */
 $config = array(
-	"path" => "./photos/"
+	"path" => "../photos/"
 );
 
 
