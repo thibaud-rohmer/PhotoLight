@@ -34,12 +34,36 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
 	
-	<!-- CSS -->
-	<link rel='stylesheet' href='public_html/css/main.css' type='text/css' media='screen' charset='utf-8'>
-	
 	<!-- JS -->
 	<script src='resources/library/jquery.js'></script>
 	<script src='resources/library/jquery-ui.js'></script>
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="public_html/css/main.css" />
+	<noscript>
+	<link rel="stylesheet" href="public_html/css/980.css" />
+	</noscript>
+	
+	<script>
+	// Edit to suit your needs.
+	var ADAPT_CONFIG = {
+	  // Where is your CSS?
+	  path: 'public_html/css/',
+
+	  // false = Only run once, when page first loads.
+	  // true = Change on window resize and page tilt.
+	  dynamic: true,
+
+	  // First range entry is the minimum.
+	  // Last range entry is the maximum.
+	  // Separate ranges by "to" keyword.
+	  range: [
+	    '0px    to 760px  = mobile.css',
+	    '980px            = large.css'
+	  ]
+	};
+	</script>
+	<script src="resources/library/adapt.min.js"></script>
 	
 	<title>PhotoLight</title> 
 </head>

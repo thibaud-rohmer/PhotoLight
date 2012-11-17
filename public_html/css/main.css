@@ -40,14 +40,6 @@ body{
 	font-size: 		12px;
 }
 
-#container{
-	position:	fixed;
-	top:		0;
-	bottom:		0;
-	left:		0;
-	right:		0;
-}
-
 #err{
 	margin: 	auto;
 	width:  	200px;
@@ -55,16 +47,6 @@ body{
 	text-align: center;
 	background:	red;
 	color:		white;
-}
-
-#menu{
-	position:	absolute;
-	right:		0px;
-	width:		200px;
-	top:		0px;
-	bottom:		0px;
-	bottom:		0;
-	background:	#333;
 }
 
 .menu_title{
@@ -101,32 +83,19 @@ body{
 	color:		white;
 }
 
-#content{
-	position:	absolute;
-	left:		0px;
-	right:		250px;
-	top:		20px;
-	bottom:		0;
-	padding:	20px;
-	overflow:	auto;
-}
-
 .content_title{
 	margin:		auto;
 	padding:	20px;
 	color:		white;
 	font-size:	25px;
 }
-.thumb{
-	display:	inline-block;
-	width : 	200px;
-	height:		150px;
-	text-align:	center;
-	margin:		5px;
+
+.thumb {
+	text-align: center;
 }
 
 .thumb img{
-	max-width:	100%;
+	max-width:	90%;
 	max-height:	100%;
 	border:		2px solid #ddd;
 }
