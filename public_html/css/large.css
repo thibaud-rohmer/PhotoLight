@@ -1,4 +1,12 @@
+#breadcrumbs{
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	-webkit-box-shadow: rgb(0, 0, 0) 0px 0px 8px 2px;
+}
 #content{
+	margin-top:	80px;
 	padding:	20px;
 	overflow:	auto;
 }

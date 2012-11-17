@@ -38,7 +38,7 @@ if(count($folders) > 0){
 	foreach ($folders as $folder){
 		$f = a2r($folder,$config['path']);
 		$name = nice($folder);
-		$img = list_files($folder,true,true);
+		$img = a2r(list_files($folder,true,true),$config['path']);
 		echo "<div class='folder' ";
 		echo 	" '";
 		echo 	" style='";
