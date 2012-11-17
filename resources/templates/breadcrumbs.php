@@ -1,4 +1,4 @@
-<?php  
+<?php
 /**
  * 
  * PHP versions 3, 4 and 5
@@ -28,52 +28,14 @@
  * @link      http://github.com/thibaud-rohmer/PhotoLight
  */
 
-	// load up config file	 
-	require_once("resources/config.php");
-	require_once(TEMPLATES_PATH . "/functions.php");
-	
-	
-	$dir = $config['path'];
-	
-	if(isset($_GET['i'])){
-		$i = r2a(stripslashes($_GET['i']),$config['path']);
-		if(inGoodPlace($i,$config['path'])){
-			return output($i);
-		}else{
-			$err = "Wrong image path";
-		}
-	}
-	
-	if(isset($_GET['f'])){
-		$d = r2a(stripslashes($_GET['f']),$config['path']);
-		if(inGoodPlace($d,$config['path'])){
-			$dir = $d;
-		}else{
-			$err = "Wrong path.";
-		}
-	}
-	
-	require_once(TEMPLATES_PATH . "/header.php");
-	
-?>	
-<body>
-<div id="container">  
-	<?php 
-	if(isset($err)){
-		echo "<div id='err'>$err</div>";
-	}
-	?>
-	<div id="breadcrumbs">
-		<?php require_once(TEMPLATES_PATH . "/breadcrumbs.php"); ?>
-	</div>
-	<div id="content">	
-		<?php	require_once(TEMPLATES_PATH . "/content.php");  ?>
-	</div>	
+$breadcrumbs = breadcrumbs(a2r($dir,$config["path"]));
 
-	
-</div>	
-<?php  
-	// require_once(TEMPLATES_PATH . "/footer.php");  
+$url = "?f=.";
+echo "<div class='content_title'>";
+echo "<a href='.'>Home</a>";
+foreach ($breadcrumbs as $b){
+	$url = $url."/".$b;
+	echo " > <a href=\"$url\">$b</a></li>";
+}
+echo "</div>";
 ?>
-</body>
-</html>

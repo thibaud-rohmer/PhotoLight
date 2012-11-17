@@ -33,9 +33,14 @@
 	padding:	0;
 }
 
+a,a:visited{
+	color:		white;
+	text-decoration:	none;
+}
+
 body{
 	position:		relative;
-	background:		#111;
+	background:		#151515;
 	font-family: 	'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 		12px;
 }
@@ -86,21 +91,37 @@ body{
 .content_title{
 	margin:		auto;
 	padding:	20px;
-	color:		white;
-	font-size:	25px;
+}
+
+.content_title,
+.content_title a,
+.content_title a:visited{
+	font-size:			30px;
+	font-style: 		italic;
+	color:				white;
+}
+
+.content_title a:hover{
+	text-decoration:	underline;
 }
 
 .thumb {
 	text-align: center;
+	position:	relative;
 }
+
 
 .thumb img{
 	max-width:	90%;
-	max-height:	100%;
-	border:		2px solid #ddd;
+	max-height:	90%;
+	border:		2px solid black;
 }
 
 .thumb:hover img{
-	border:		2px solid yellow;
+	border-color:		yellow;
 	cursor:		pointer;
+}
+
+#breadcrumbs{
+	background:	black;
 }

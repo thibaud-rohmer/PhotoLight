@@ -81,7 +81,7 @@ function list_dirs($dir,$rec=false, $hidden=false){
  * @return void
  * @author Thibaud Rohmer
  */
-function list_files($dir,$rec = false, $hidden = false){
+function list_files($dir,$rec = false, $first = false){
 	/// Directories list
 	$list=array();
 	
@@ -101,8 +101,11 @@ function list_files($dir,$rec = false, $hidden = false){
 	foreach ($dir_content as $content){
 		
 		/// Content isn't hidden and is a file
-		if($content[0] != '.' || $hidden){
+		if($content[0] != '.'){
 			if(is_file($path=$dir."/".$content)){
+				if($first){
+					return $path;
+				}
 				$list[]=$path;
 			}else{
 				if($rec){
@@ -189,4 +192,19 @@ function a2r($file,$dir){
 function r2a($file,$dir){
 	return $dir."/".$file;
 }
+
+function breadcrumbs($p){
+	$a = array();
+	$pos = strpos($p,'/');
+	while($pos > 0){
+		$a[] = substr($p,0,$pos);
+		$p = substr($p,$pos+1);
+		$pos = strpos($p,'/');
+	}
+	if($p != ""){
+		$a[] = $p;		
+	}
+	return $a;
+}
+
 ?>

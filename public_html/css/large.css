@@ -1,35 +1,55 @@
-#container{
-	position:	fixed;
-	top:		0;
-	bottom:		0;
-	left:		0;
-	right:		0;
-}
-
 #content{
-	position:	absolute;
-	left:		0px;
-	right:		250px;
-	top:		20px;
-	bottom:		0;
 	padding:	20px;
 	overflow:	auto;
 }
 
-.thumb{
-	display:	inline-block;
-	width : 	200px;
-	height:		150px;
-	text-align:	center;
-	margin:		5px;
-}
-
 #menu{
+	visibility:	hidden;
 	position:	absolute;
-	right:		0px;
+	left:		0px;
 	width:		200px;
 	top:		0px;
 	bottom:		0px;
 	bottom:		0;
 	background:	#333;
+	overflow: 	auto;
 }
+
+#dirs, #thumbs{
+	text-align:	center;
+	margin:		auto;
+}
+
+.thumb{
+	display:	inline-block;
+	width : 	250px;
+	height:		160px;
+	text-align:	center;
+	margin:		0px 1px 10px 1px;
+}
+
+.thumb img{ 
+	-webkit-box-shadow: rgb(0, 0, 0) 0px 0px 8px 2px;
+}
+
+.folder{
+	display: inline-block;
+	position: relative;
+	width:	300px;
+	height:	160px;
+	background:	blue;
+	margin:	20px;
+	-webkit-box-shadow: rgb(0, 0, 0) 0px 0px 8px 2px;
+	background-size: contain;
+}
+
+.folder .title{
+	position:	absolute;
+	bottom:		0;
+	left:		0;
+	right:		0;
+	padding:	3px;
+	background:	rgba(0,0,0,0.5);
+	text-align:	center;
+}
+

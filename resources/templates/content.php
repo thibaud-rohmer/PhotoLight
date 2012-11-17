@@ -28,16 +28,39 @@
  * @link      http://github.com/thibaud-rohmer/PhotoLight
  */
 
-if($dir == $config['path']){
-	echo "<div class='content_title'>Home</div>";
-}else{
-	echo "<div class='content_title'>".nice($dir)."</div>";	
-}
+
+$folders = list_dirs($dir);
 $files = list_files($dir);
 
-foreach ($files as $file){
-	$f = a2r($file,$config['path']);
-	echo "<div class='thumb'><a href=\"?i=$f\"><img src=\"?i=$f\"></a></div>";
+if(count($folders) > 0){
+	echo "<div class='content_title'>> Directories</div>";
+	echo "<div id='dirs'>\n";
+	foreach ($folders as $folder){
+		$f = a2r($folder,$config['path']);
+		$name = nice($folder);
+		$img = list_files($folder,true,true);
+		echo "<div class='folder' ";
+		echo 	" '";
+		echo 	" style='";
+		echo 	" background: 		url(\"?i=$img\") no-repeat center center;";
+		echo 	" -webkit-background-size: cover;";
+		echo 	" -moz-background-size: cover;";
+		echo 	" -o-background-size: cover;";
+		echo 	" background-size: 	cover;";
+		echo 	"'>\n";
+		echo "<div class='title'><a href=\"?f=$f\">$name</a></div></div>\n";
+	}
+	echo "</div>\n";
 }
 
+if(count($files) > 0){ 
+	echo "<div class='content_title'>> Images</div>";
+	echo "<div id='thumbs'>\n";
+	foreach ($files as $file){
+		$f = a2r($file,$config['path']);
+		$name = nice($file);
+		echo "<div class='thumb'><a href=\"?i=$f\"><img src=\"?i=$f\"></a></div>\n";
+	}
+	echo "</div>\n";
+}
 ?>
