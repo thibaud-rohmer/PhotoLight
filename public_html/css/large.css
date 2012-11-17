@@ -4,6 +4,7 @@
 	left:0;
 	right:0;
 	-webkit-box-shadow: rgb(0, 0, 0) 0px 0px 8px 2px;
+	box-shadow: 0 0 8px black;
 }
 #content{
 	margin-top:	80px;
@@ -38,6 +39,7 @@
 
 .thumb img{ 
 	-webkit-box-shadow: rgb(0, 0, 0) 0px 0px 8px 2px;
+	box-shadow: 0 0 8px black;
 }
 
 .folder{
@@ -48,6 +50,7 @@
 	background:	blue;
 	margin:	20px;
 	-webkit-box-shadow: rgb(0, 0, 0) 0px 0px 8px 2px;
+	box-shadow: 0 0 8px black;
 	background-size: contain;
 }
 
