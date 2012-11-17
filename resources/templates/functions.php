@@ -117,6 +117,9 @@ function list_files($dir,$rec = false, $first = false){
 	}
 
 	/// Return files list
+	if($first){
+		return $list[0];
+	}
 	return $list;
 }
 
