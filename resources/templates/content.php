@@ -33,7 +33,6 @@ $folders = list_dirs($dir);
 $files = list_files($dir);
 
 if(count($folders) > 0){
-	echo "<div class='content_title'>> Directories</div>";
 	echo "<div id='dirs'>\n";
 	foreach ($folders as $folder){
 		$f = a2r($folder,$config['path']);
@@ -54,7 +53,6 @@ if(count($folders) > 0){
 }
 
 if(count($files) > 0){ 
-	echo "<div class='content_title'>> Images</div>";
 	echo "<div id='thumbs'>\n";
 	foreach ($files as $file){
 		$f = a2r($file,$config['path']);

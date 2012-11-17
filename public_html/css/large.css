@@ -5,6 +5,7 @@
 	right:0;
 	-webkit-box-shadow: rgb(0, 0, 0) 0px 0px 8px 2px;
 	box-shadow: 0 0 8px black;
+	z-index:100;
 }
 #content{
 	margin-top:	80px;

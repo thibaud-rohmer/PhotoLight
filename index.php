@@ -68,12 +68,9 @@
 	</div>
 	<div id="content">	
 		<?php	require_once(TEMPLATES_PATH . "/content.php");  ?>
-	</div>	
+	</div>
 
 	
-</div>	
-<?php  
-	// require_once(TEMPLATES_PATH . "/footer.php");  
-?>
+</div>
 </body>
 </html>
