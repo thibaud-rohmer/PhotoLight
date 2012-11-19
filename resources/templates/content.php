@@ -37,16 +37,16 @@ if(count($folders) > 0){
 	foreach ($folders as $folder){
 		$f = a2r($folder,$config['path']);
 		$name = nice($folder);
-		$img = a2r(list_files($folder,true,true),$config['path']);
+		$img = addslashes(a2r(list_files($folder,true,true),$config['path']));
 		echo "<div class='folder' ";
-		echo 	" '";
-		echo 	" style='";
-		echo 	" background: 		url(\"?i=$img\") no-repeat center center;";
+		echo 	" ";
+		echo 	" style=\"";
+		echo 	" background: 		url('?i=$img') no-repeat center center;";
 		echo 	" -webkit-background-size: cover;";
 		echo 	" -moz-background-size: cover;";
 		echo 	" -o-background-size: cover;";
 		echo 	" background-size: 	cover;";
-		echo 	"'>\n";
+		echo 	"\">\n";
 		echo "<div class='title'><a href=\"?f=$f\">$name</a></div></div>\n";
 	}
 	echo "</div>\n";
