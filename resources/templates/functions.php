@@ -210,4 +210,22 @@ function breadcrumbs($p){
 	return $a;
 }
 
+function create_thumb($source,$thumb_path){
+	require_once("resources/library/phpthumb/ThumbLib.inc.php");
+    
+	if(!file_exists($thumb_path) || filectime($source) > filectime($thumb_path) ){
+
+        /// Create directories
+        if(!file_exists(dirname($thumb_path))){
+            @mkdir(dirname($thumb_path),0755,true);
+        }
+
+        /// Create thumbnail
+		$thumb = PhpThumbFactory::create($source);
+		$thumb->resize(200, 200);
+		$thumb->save($thumb_path);
+	}
+}
+
+
 ?>

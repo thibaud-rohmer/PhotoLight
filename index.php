@@ -35,6 +35,8 @@
 	
 	$dir = $config['path'];
 	
+	
+	// Get image
 	if(isset($_GET['i'])){
 		$i = r2a(stripslashes($_GET['i']),$config['path']);
 		if(inGoodPlace($i,$config['path'])){
@@ -44,6 +46,29 @@
 		}
 	}
 	
+	// Get thumb
+	if(isset($_GET['t'])){
+		$i = r2a(stripslashes($_GET['t']),$config['path']);
+		$t = r2a(stripslashes($_GET['t']),$config['thumbs_path']);
+		// Image in good place
+		if(inGoodPlace($i,$config['path'])){
+			
+			// No thumb yet
+			if(!file_exists($t)){
+				create_thumb($i,$t);
+			}
+			if(file_exists($t)){
+				return output($t);				
+			}else{
+				return output($i);
+			}
+		}else{
+			$err = "Wrong image path";
+		}
+	}
+	
+	
+	// Get folder
 	if(isset($_GET['f'])){
 		$d = r2a(stripslashes($_GET['f']),$config['path']);
 		if(inGoodPlace($d,$config['path'])){

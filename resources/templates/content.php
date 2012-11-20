@@ -41,7 +41,7 @@ if(count($folders) > 0){
 		echo "<div class='folder' ";
 		echo 	" ";
 		echo 	" style=\"";
-		echo 	" background: 		url('?i=$img') no-repeat center center;";
+		echo 	" background: 		url('?t=$img') no-repeat center center;";
 		echo 	" -webkit-background-size: cover;";
 		echo 	" -moz-background-size: cover;";
 		echo 	" -o-background-size: cover;";
@@ -57,7 +57,7 @@ if(count($files) > 0){
 	foreach ($files as $file){
 		$f = a2r($file,$config['path']);
 		$name = nice($file);
-		echo "<div class='thumb'><a href=\"?i=$f\"><img src=\"?i=$f\"></a></div>\n";
+		echo "<div class='thumb'><a href=\"?t=$f\"><img src=\"?i=$f\"></a></div>\n";
 	}
 	echo "</div>\n";
 }

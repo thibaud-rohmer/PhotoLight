@@ -32,7 +32,8 @@
 	Configuration array
 */
 $config = array(
-	"path" => "../photos/"
+	"path" => "../photos/",
+	"thumbs_path" => "../thumbs/"
 );
 
 
