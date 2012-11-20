@@ -180,6 +180,12 @@ body{
 	-webkit-box-shadow: rgb(0, 0, 0) 0px 0px 8px 2px;
 	box-shadow: 0 0 8px black;
 	background-size: contain;
+	cursor: pointer;
+	border:	2px solid black;
+}
+
+.folder:hover{
+	border: 2px solid rgb(80,140,200);
 }
 
 .folder .title{
