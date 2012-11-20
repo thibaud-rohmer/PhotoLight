@@ -57,7 +57,7 @@ if(count($files) > 0){
 	foreach ($files as $file){
 		$f = a2r($file,$config['path']);
 		$name = nice($file);
-		echo "<div class='thumb'><a href=\"?t=$f\"><img src=\"?i=$f\"></a></div>\n";
+		echo "<div class='thumb'><a href=\"?i=$f\"><img src=\"?t=$f\"></a></div>\n";
 	}
 	echo "</div>\n";
 }
