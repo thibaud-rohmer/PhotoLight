@@ -54,6 +54,17 @@ body{
 	color:		white;
 }
 
+#loading{
+	display:	none;
+	position:	fixed;
+	padding:	50px 100px 50px 100px;
+	border:			1px solid white;
+	background:	#333;
+	color:		white;
+	top:		100px;
+	left:		40%;
+}
+
 .menu_title{
 	margin:			0;
 	padding:		2px;

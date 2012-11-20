@@ -7,6 +7,7 @@ function update_url(url,name){
 
 $("document").ready(function(){
 	$(".folder").click(function(){
+		$("#loading").show();
 		t=encodeURI($(this).children(".title").children('a').attr('href'));
 		n=$(this).children(".title").children('a').html();
 		$("body").load(t);

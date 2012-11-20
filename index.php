@@ -82,7 +82,7 @@
 	
 ?>	
 <body>
-<div id="container">  
+<div id="container">
 	<?php 
 	if(isset($err)){
 		echo "<div id='err'>$err</div>";
@@ -95,6 +95,9 @@
 		<?php	require_once(TEMPLATES_PATH . "/content.php");  ?>
 	</div>
 
+	<div id="loading">
+		Loading...
+	</div>
 	
 </div>
 </body>
