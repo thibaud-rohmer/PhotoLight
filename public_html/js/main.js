@@ -12,5 +12,18 @@ $("document").ready(function(){
 		n=$(this).children(".title").children('a').html();
 		$("body").load(t);
 		update_url(t,n);
-	})
+	});
+	
+	$(".thumb").click(function(){
+		t=encodeURI($(this).children('a').attr('href'));
+		$("#imgviewer").html('<img src="'+t+'">');
+		$("#viewer").fadeIn();			
+		return false;
+	});
+	
+	$("#container").click(function(){
+		$("#viewer").fadeOut();
+	});
+
+	
 });

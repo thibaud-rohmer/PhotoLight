@@ -95,6 +95,10 @@
 		<?php	require_once(TEMPLATES_PATH . "/content.php");  ?>
 	</div>
 
+	<div id="viewer">
+		<div id="imgviewer">
+		</div>
+	</div>
 	<div id="loading">
 		Loading...
 	</div>

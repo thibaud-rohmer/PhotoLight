@@ -168,6 +168,24 @@ body{
 	margin:		auto;
 }
 
+#viewer{
+	display:	none;
+	position:	fixed;
+	top:		150px;
+	left:		0;
+	right:		0;
+	text-align:	center;
+	height:		50%;
+}
+
+#viewer img{
+	max-height: 100%;
+	max-width:	80%;
+	border:	1px solid black;
+	-webkit-box-shadow: rgb(0, 0, 0) 0px 0px 8px 2px;
+	box-shadow: 0 0 8px black;
+}
+
 .thumb{
 	display:	inline-block;
 	width : 	250px;
