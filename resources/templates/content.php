@@ -35,6 +35,9 @@ $files = list_files($dir);
 if(count($folders) > 0){
 	echo "<div id='dirs'>\n";
 	foreach ($folders as $folder){
+		if(file_exists($folder."/.pshide")){
+			continue;
+		}
 		$f = a2r($folder,$config['path']);
 		$name = nice($folder);
 		$img = addslashes(a2r(list_files($folder,true,true),$config['path']));
