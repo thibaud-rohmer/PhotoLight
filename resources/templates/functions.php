@@ -162,6 +162,19 @@ function output($i){
 	readfile($i);
 }
 
+
+/**
+ * Check that $a is inside $b
+ *
+ * @param string $file 
+ * @param string $dir Directory from where the relative path will be (if NULL : photos_dir)
+ * @return void
+ * @author Thibaud Rohmer
+ */
+function is_inside($a,$b){
+	return substr($b,0,strlen($a)) == $a;
+}
+
 /**
  * Absolute path comes in, relative path goes out !
  *
@@ -177,7 +190,7 @@ function a2r($file,$dir){
 	
 	if($rf==$rd) return "";
 
-	if( substr($rf,0,strlen($rd)) != $rd ){
+	if( !is_inside($rd,$rf) ){
 		throw new Exception("This file is not inside the photos folder !<br/>");
 	}
 
@@ -210,9 +223,9 @@ function breadcrumbs($p){
 	return $a;
 }
 
-function create_thumb($source,$thumb_path){
+function create_thumb($source,$thumb_path,$thumbs_folder_path){
 	require_once("resources/library/phpthumb/ThumbLib.inc.php");
-    
+
 	if(!file_exists($thumb_path) || filectime($source) > filectime($thumb_path) ){
 
         /// Create directories
@@ -224,6 +237,19 @@ function create_thumb($source,$thumb_path){
 		$thumb = PhpThumbFactory::create($source);
 		$thumb->resize(200, 200);
 		$thumb->save($thumb_path);
+		
+		/// New !
+		$new_file = fopen($thumbs_folder_path."/new.txt","a+");
+		fwrite($new_file,realpath($source)."\n");
+		
+		// read the file in an array.
+		$file = file($thumbs_folder_path."/new.txt");
+
+		// slice first 20 elements.
+		$file = array_slice($file,0,20);
+
+		// write back to file after joining.
+		file_put_contents($thumbs_folder_path."/new.txt",implode("",$file));
 	}
 }
 

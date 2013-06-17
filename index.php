@@ -35,6 +35,11 @@
 	
 	$dir = $config['path'];
 	
+	if(file_exists($config['thumbs_path']."/new.txt")){
+		$new = file($config['thumbs_path']."/new.txt");
+	}else{
+		$new = array();
+	}
 	
 	// Get image
 	if(isset($_GET['i'])){
@@ -55,7 +60,7 @@
 			
 			// No thumb yet
 			if(!file_exists($t)){
-				create_thumb($i,$t);
+				create_thumb($i,$t,$config['thumbs_path']);
 			}
 			if(file_exists($t)){
 				return output($t);				

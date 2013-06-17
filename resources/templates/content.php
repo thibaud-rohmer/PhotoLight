@@ -38,9 +38,23 @@ if(count($folders) > 0){
 		if(file_exists($folder."/.pshide")){
 			continue;
 		}
+
 		$f = a2r($folder,$config['path']);
 		$name = nice($folder);
+		
+		$new_file = false;
+		foreach($new as $n){
+			$a = $n;
+			$b = realpath($folder);
+			if(is_inside($b,$a)){
+				$new_file = true;
+				break;
+			}
+		}
+		
 		$img = addslashes(a2r(list_files($folder,true,true),$config['path']));
+		
+
 		echo "<div class='folder' ";
 		echo 	" ";
 		echo 	" style=\"";
@@ -50,6 +64,11 @@ if(count($folders) > 0){
 		echo 	" -o-background-size: cover;";
 		echo 	" background-size: 	cover;";
 		echo 	"\">\n";
+		
+		if($new_file){
+			echo "<div class='new'></div>";
+		}
+		
 		echo "<div class='title'><a href=\"?f=$f\">$name</a></div></div>\n";
 	}
 	echo "</div>\n";
@@ -60,7 +79,18 @@ if(count($files) > 0){
 	foreach ($files as $file){
 		$f = a2r($file,$config['path']);
 		$name = nice($file);
-		echo "<div class='thumb'><a href=\"?i=$f\"><img src=\"?t=$f\"></a></div>\n";
+		
+		$new_file = "";
+		foreach($new as $n){
+			$a = $n;
+			$b = realpath($file);
+			if(is_inside($b,$a)){
+				$new_file = "new";
+				break;
+			}
+		}
+		
+		echo "<div class='thumb $new_file'><a href=\"?i=$f\"><img src=\"?t=$f\"></a></div>\n";
 	}
 	echo "</div>\n";
 }
